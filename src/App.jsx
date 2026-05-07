@@ -81,9 +81,6 @@ function Navbar() {
     <header className="fixed inset-x-0 top-0 z-50 border-b border-white/[0.08] bg-ink/[0.68] backdrop-blur-2xl">
       <nav className="mx-auto flex h-[4.5rem] max-w-7xl items-center justify-between px-4 sm:px-8" aria-label="Main navigation">
         <a href="#home" className="group flex items-center gap-3" aria-label={`${profile.name} home`}>
-          <span className="grid size-11 place-items-center rounded-full bg-gradient-to-br from-white via-gold to-cyan text-sm font-black text-ink shadow-glow">
-            L
-          </span>
           <span className="hidden text-sm font-black tracking-wide text-white sm:block">{profile.name}</span>
         </a>
         <div className="hidden items-center gap-7 md:flex">
@@ -95,7 +92,7 @@ function Navbar() {
         </div>
         <a href={whatsappLink} className="btn-primary hidden sm:inline-flex" target="_blank" rel="noreferrer">
           <MessageCircle size={18} />
-          WhatsApp
+          Contact Me
         </a>
       </nav>
       <div className="mobile-nav md:hidden" aria-label="Mobile navigation">
