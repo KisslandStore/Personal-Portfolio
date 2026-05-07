@@ -9,7 +9,7 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   scroll-behavior: smooth;
-  scroll-padding-top: 8.25rem;
+  scroll-padding-top: 5.25rem;
 }
 
 * {
@@ -108,7 +108,7 @@ body > div {
   }
 
   .mobile-nav {
-    @apply mx-auto flex max-w-7xl gap-2 overflow-x-auto px-4 pb-3;
+    @apply mx-auto flex max-w-7xl gap-2 overflow-x-auto px-4 py-3;
     scrollbar-width: none;
   }
 

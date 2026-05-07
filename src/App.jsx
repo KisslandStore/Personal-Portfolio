@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   ArrowUpRight,
   BadgeCheck,
@@ -76,10 +76,28 @@ function GlassCard({ children, className = "" }) {
 
 function Navbar() {
   const items = ["About", "Skills", "Projects", "Services", "Contact"];
+  const [isHidden, setIsHidden] = useState(false);
+
+  useEffect(() => {
+    let lastScrollY = window.scrollY;
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      setIsHidden(currentScrollY > 80 && currentScrollY > lastScrollY);
+      lastScrollY = currentScrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/[0.08] bg-ink/[0.68] backdrop-blur-2xl">
-      <nav className="mx-auto flex h-[4.5rem] max-w-7xl items-center justify-between px-4 sm:px-8" aria-label="Main navigation">
+    <header
+      className={`fixed inset-x-0 top-0 z-50 border-b border-white/[0.08] bg-ink/[0.68] backdrop-blur-2xl transition-transform duration-300 ease-out ${
+        isHidden ? "-translate-y-full" : "translate-y-0"
+      }`}
+    >
+      <nav className="mx-auto hidden h-16 max-w-7xl items-center justify-between px-4 sm:px-8 md:flex" aria-label="Main navigation">
         <a href="#home" className="group flex items-center gap-3" aria-label={`${profile.name} home`}>
           <span className="hidden text-sm font-black tracking-wide text-white sm:block">{profile.name}</span>
         </a>
